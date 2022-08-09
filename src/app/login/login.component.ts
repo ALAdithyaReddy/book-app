@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    alert("Successfully Loggedin");
+  onSubmit() {
+    alert("Successully LoggedIn");
     localStorage.setItem("IS_LOGGED_IN", "true");
-    localStorage.setItem("ROLE","USER");
+    localStorage.setItem("ROLE","ADMIN");
   }
 
 

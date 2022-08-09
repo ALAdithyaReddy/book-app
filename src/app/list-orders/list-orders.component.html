@@ -1,11 +1,13 @@
+<br>
 <h3>All Orders</h3>
+<br>
 
-<!-- {{orders | json}} -->
+<!--{{orders | json}}-->
 
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Sno</th>
+            <th>SNo</th>
             <th>Title</th>
             <th>Amount</th>
             <th>Status</th>
@@ -14,10 +16,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let order of orders;let i=index">
-            <td>{{i+1}}</td>
+        <tr *ngFor="let order of orders; let i = index">
+            <td>{{i + 1}}</td>
             <td>{{order.item_name}}</td>
-            <td>{{order.total_price | currency:"INR"}}</td>
+            <td>{{order.total_price | currency: "USD"}}</td>
             <td>{{order.status}}</td>
             <td>{{order.ordered_date}}</td>
             <td>
@@ -27,5 +29,4 @@
             </td>
         </tr>
     </tbody>
-
 </table>

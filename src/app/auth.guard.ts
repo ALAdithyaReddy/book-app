@@ -11,18 +11,18 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log("Auth Guard is called");
 
-    //check the user is loggedin
+    //check the user is logged in
+
     let isLoggedIn = localStorage.getItem("IS_LOGGED_IN");
-    if(isLoggedIn){
+    if(isLoggedIn) {
       // alert("Allow the user to proceed");
       return true;
     }
-    else{
+    else {
       alert("Please login.");
-      window.location.href="/auth/login";
+      window.location.href = "/auth/login";
       return false;
     }
-
     return false;
   }
   

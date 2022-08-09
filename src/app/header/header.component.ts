@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +12,19 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(){
-    alert("Successfully Logged Out");
+  @Input()
+  projectName!:string;
+
+  @Input()
+  isLoggedIn!:boolean;
+  
+  @Output('logoutevent') outputEvent = new EventEmitter<string>();
+
+  logout() {
+    alert("Successfully Logged out");
     localStorage.clear();
-    window.location.href="/auth/login";
+
+    this.outputEvent.emit("logout123");
+    window.location.href = "/auth/login"
   }
 }
