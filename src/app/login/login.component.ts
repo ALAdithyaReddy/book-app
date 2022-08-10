@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    alert("Successully LoggedIn");
+  onSubmit(){
+    alert("Successfully Loggedin");
     localStorage.setItem("IS_LOGGED_IN", "true");
     localStorage.setItem("ROLE","ADMIN");
   }

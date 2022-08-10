@@ -14,41 +14,45 @@ export class ListOrdersComponent implements OnInit {
     this.getOrders();
   }
 
-  orders!: any[];
+  orders:any;
 
-  getOrders() {
+  getOrders(){
     const url = "http://localhost:3000/orders";
 
-    this.http.get(url).subscribe( (res:any) => {
+    this.http.get(url).subscribe ((res:any)=>{
       this.orders = res;
     })
   }
 
-  deliverOrder(order:any) {
-    const url = "http://localhost:3000/orders/" + order.id;
+  deliverOrder(order:any){
+    
+    const url ="http://localhost:3000/orders/" + order.id;
     const orderObj = {
       id: order.id,
-      status: "DELIVERED",
+      status:"DELIVERED"
     };
-
-    this.http.patch(url, orderObj).subscribe((res:any) => {
+    
+    this.http.patch(url, orderObj).subscribe ((res:any)=>{
       console.log(res);
       alert("Order status changed to delivered - " + order.id);
-      this.getOrders();
+      this.getOrders();      
     });
+
   }
 
-  cancelOrder(order:any) {
-      const url = "http://localhost:3000/orders/" + order.id;
-      const orderObj = {
-        id: order.id,
-        status: "CANCELLED",
-      };
-  
-      this.http.patch(url, orderObj).subscribe((res:any) => {
-        console.log(res);
-        alert("Order has been cancelled - " + order.id);
-        this.getOrders();
-      });
+  cancelOrder(order:any){
+    
+    const url ="http://localhost:3000/orders/" + order.id;
+    const orderObj = {
+      id: order.id,
+      status:"CANCELLED"
+    };
+    
+    this.http.patch(url, orderObj).subscribe ((res:any)=>{
+      console.log(res);
+      alert("Order has been cancelled - " + order.id);    
+      this.getOrders();  
+    });
+
   }
 }
